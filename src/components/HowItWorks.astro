@@ -1,0 +1,58 @@
+---
+import Icon from './Icon.astro';
+
+const steps = [
+  {
+    icon: 'pencil-ruler',
+    title: 'Fill out the brief in 2 minutes',
+    body: 'Tell us about your business, your style, and the pages you want. Quick and simple — no tech skills needed.',
+  },
+  {
+    icon: 'rocket',
+    title: 'Get your free preview in 24–48h',
+    body: 'We design and build your website, then send a live preview link. Review it on any device, no strings attached.',
+  },
+  {
+    icon: 'badge-dollar',
+    title: 'Approve and we publish for $199',
+    body: "Happy with it? We publish to your domain for a flat $199. Not for you? You owe nothing.",
+  },
+];
+---
+<section id="how-it-works" class="bg-paper py-20 sm:py-28">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6">
+    <div class="mx-auto max-w-2xl text-center reveal">
+      <span class="text-sm font-semibold uppercase tracking-widest text-brand-600">Simple process</span>
+      <h2 class="mt-3 font-display text-3xl font-extrabold text-text sm:text-4xl lg:text-5xl">How it works</h2>
+      <p class="mt-4 text-lg text-muted">Three steps from idea to a live website — with zero risk along the way.</p>
+    </div>
+
+    <ol class="relative mt-16 grid gap-10 md:grid-cols-3">
+      <!-- connecting line (desktop) -->
+      <div class="pointer-events-none absolute left-0 right-0 top-7 hidden h-px bg-gradient-to-r from-brand-200 via-brand-400 to-brand-200 md:block" aria-hidden="true"></div>
+
+      {steps.map((step, i) => (
+        <li class="reveal relative" style={`--reveal-delay:${i * 120}ms`}>
+          <div class="flex items-center gap-4 md:flex-col md:items-start">
+            <span class="relative z-10 flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-brand-500 to-indigo-glow text-white shadow-glow">
+              <Icon name={step.icon} class="h-7 w-7" />
+            </span>
+            <span class="font-display text-sm font-bold uppercase tracking-widest text-brand-500">Step {i + 1}</span>
+          </div>
+          <h3 class="mt-5 text-xl font-semibold text-text">{step.title}</h3>
+          <p class="mt-2 text-muted">{step.body}</p>
+        </li>
+      ))}
+    </ol>
+
+    <div class="mt-14 text-center reveal">
+      <a
+        href="#brief"
+        class="group inline-flex items-center justify-center gap-2 rounded-full bg-cta-500 px-8 py-4 text-base font-semibold text-white shadow-cta transition-all hover:-translate-y-0.5 hover:bg-cta-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cta-400 focus-visible:ring-offset-2 cursor-pointer"
+      >
+        Start my free preview
+        <Icon name="arrow-right" class="h-5 w-5 transition-transform group-hover:translate-x-1" />
+      </a>
+    </div>
+  </div>
+</section>

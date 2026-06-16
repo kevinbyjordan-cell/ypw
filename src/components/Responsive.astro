@@ -1,0 +1,87 @@
+---
+import Icon from './Icon.astro';
+
+const devices = [
+  { icon: 'smartphone', title: 'Mobile', body: 'Thumb-friendly layouts and tap-to-call for customers on the go.' },
+  { icon: 'tablet', title: 'Tablet', body: 'Crisp, balanced spacing that adapts to every mid-size screen.' },
+  { icon: 'monitor', title: 'Desktop', body: 'A polished, full-width experience that makes your brand shine.' },
+];
+const IMG = '/showcase/restaurant.webp';
+---
+<section class="relative overflow-hidden bg-gradient-to-b from-ink-2 to-ink py-20 text-white sm:py-28">
+  <div class="absolute inset-0 bg-grid opacity-50" aria-hidden="true"></div>
+  <div class="pointer-events-none absolute right-0 top-1/3 h-80 w-80 rounded-full bg-cyan-glow/15 blur-[120px]" aria-hidden="true"></div>
+
+  <div class="relative mx-auto max-w-6xl px-4 sm:px-6">
+    <div class="grid items-center gap-14 lg:grid-cols-2">
+      <div class="reveal">
+        <span class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-sm font-medium text-brand-100">
+          <Icon name="monitor-smartphone" class="h-4 w-4 text-cyan-glow" />
+          Responsive by default
+        </span>
+        <h2 class="mt-5 font-display text-3xl font-extrabold sm:text-4xl lg:text-5xl">
+          Your site, perfect on <span class="text-gradient">any screen</span>
+        </h2>
+        <p class="mt-4 text-lg text-slate-300">
+          Most local customers find you on their phone. Every site we build is designed mobile-first
+          and tested across phones, tablets, and desktops — so it always looks sharp, loads fast,
+          and works flawlessly.
+        </p>
+
+        <div class="mt-8 grid gap-4 sm:grid-cols-3">
+          {devices.map((device) => (
+            <div class="rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur-sm">
+              <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-white/10 text-cyan-glow">
+                <Icon name={device.icon} class="h-6 w-6" />
+              </span>
+              <h3 class="mt-4 font-display text-base font-semibold">{device.title}</h3>
+              <p class="mt-1 text-sm text-slate-400">{device.body}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- The same real site across three device frames -->
+      <div class="reveal relative flex items-end justify-center gap-4">
+        <!-- Tablet -->
+        <div class="hidden w-40 shrink-0 overflow-hidden rounded-[1.25rem] border-4 border-ink-3 bg-white shadow-float sm:block">
+          <div class="relative aspect-[3/4]">
+            <img src={IMG} alt="Example restaurant site on a tablet" class="h-full w-full object-cover" loading="lazy" decoding="async" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+            <div class="absolute bottom-0 p-3">
+              <p class="font-display text-xs font-bold text-white">Olive &amp; Ember</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Desktop -->
+        <div class="w-full max-w-sm overflow-hidden rounded-xl border-4 border-ink-3 bg-white shadow-float">
+          <div class="flex items-center gap-1.5 bg-slate-100 px-3 py-2">
+            <span class="h-2 w-2 rounded-full bg-[#ff5f57]"></span>
+            <span class="h-2 w-2 rounded-full bg-[#febc2e]"></span>
+            <span class="h-2 w-2 rounded-full bg-[#28c840]"></span>
+          </div>
+          <div class="relative aspect-[16/10]">
+            <img src={IMG} alt="Example restaurant site on desktop" class="h-full w-full object-cover" loading="lazy" decoding="async" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/20"></div>
+            <div class="absolute bottom-0 p-4">
+              <p class="font-display text-lg font-bold text-white">Fresh plates, warm nights.</p>
+              <span class="mt-2 inline-block rounded-md bg-[#e2603f] px-2.5 py-1 text-[11px] font-semibold text-white">Reserve a table</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Phone -->
+        <div class="-ml-8 hidden w-24 shrink-0 overflow-hidden rounded-[1.25rem] border-4 border-ink-3 bg-white shadow-float sm:block">
+          <div class="relative aspect-[9/16]">
+            <img src={IMG} alt="Example restaurant site on a phone" class="h-full w-full object-cover" loading="lazy" decoding="async" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+            <div class="absolute bottom-0 p-2">
+              <span class="inline-block rounded bg-[#e2603f] px-1.5 py-0.5 text-[8px] font-semibold text-white">Reserve</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

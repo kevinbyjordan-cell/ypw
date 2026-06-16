@@ -1,0 +1,55 @@
+---
+import Icon from './Icon.astro';
+
+// True, general claims only — no invented statistics.
+const reasons = [
+  {
+    icon: 'shield-check',
+    title: 'Instant credibility',
+    body: 'A clean, professional site signals your business is real and trustworthy — often before a customer ever calls.',
+  },
+  {
+    icon: 'trending-up',
+    title: 'Turns visitors into customers',
+    body: 'Clear messaging, easy contact, and a built-in lead form guide people toward booking and reaching out.',
+  },
+  {
+    icon: 'zap',
+    title: 'Works for you 24/7',
+    body: 'Your website answers questions, shows your services, and captures leads around the clock — even while you sleep.',
+  },
+  {
+    icon: 'globe',
+    title: 'Your competitors are already online',
+    body: 'When customers search, they find businesses with a website first. A strong site keeps you in the running.',
+  },
+];
+---
+<section class="bg-paper py-20 sm:py-28">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6">
+    <div class="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+      <div class="reveal">
+        <span class="text-sm font-semibold uppercase tracking-widest text-brand-600">Why it matters</span>
+        <h2 class="mt-3 font-display text-3xl font-extrabold text-text sm:text-4xl lg:text-5xl">
+          Why have a professional website?
+        </h2>
+        <p class="mt-5 text-lg text-muted">
+          For a local business, a website isn't a luxury — it's how today's customers decide who to
+          trust before they ever reach out. Here's what one does for you.
+        </p>
+      </div>
+
+      <div class="grid gap-5 sm:grid-cols-2">
+        {reasons.map((reason, i) => (
+          <div class="reveal rounded-2xl border border-slate-200 bg-white p-6 shadow-card transition-all hover:-translate-y-1 hover:shadow-glow" style={`--reveal-delay:${i * 80}ms`}>
+            <span class="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-brand-500 to-indigo-glow text-white shadow-md">
+              <Icon name={reason.icon} class="h-6 w-6" />
+            </span>
+            <h3 class="mt-5 text-lg font-semibold text-text">{reason.title}</h3>
+            <p class="mt-2 text-muted">{reason.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

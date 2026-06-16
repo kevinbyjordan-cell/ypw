@@ -1,0 +1,16 @@
+# build output
+dist/
+# dependencies
+node_modules/
+# generated types
+.astro/
+# environment variables
+.env
+.env.production
+.env.local
+# macOS / editor cruft
+.DS_Store
+# logs
+npm-debug.log*
+# archived reference material (old 5MB export)
+_reference/

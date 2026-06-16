@@ -1,0 +1,20 @@
+---
+// Thin marquee band of the niches we serve — momentum + relevance.
+const niches = [
+  'Barbershops', 'Restaurants', 'Dental clinics', 'Personal trainers', 'Law firms',
+  'Salons', 'Contractors', 'Cafés', 'Auto shops', 'Real estate', 'Med spas', 'Photographers',
+];
+const loop = [...niches, ...niches];
+---
+<div class="border-y border-slate-200 bg-paper-tint py-5">
+  <div class="relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,#000_8%,#000_92%,transparent)]">
+    <ul class="flex w-max items-center gap-10 animate-marquee whitespace-nowrap">
+      {loop.map((n) => (
+        <li class="flex items-center gap-10 text-sm font-semibold uppercase tracking-wide text-muted">
+          <span>{n}</span>
+          <span class="h-1.5 w-1.5 rounded-full bg-brand-400"></span>
+        </li>
+      ))}
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm --version)",
+      "Bash(ls -la \"C:/Users/kevin/Desktop/AGENCIA/VENDA SITES/SITE YPW\" 2>/dev/null; echo \"===\"; ls \"C:/Users/kevin/Desktop/AGENCIA/VENDA SITES\")"
+    ]
+  }
+}

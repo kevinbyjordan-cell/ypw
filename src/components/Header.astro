@@ -1,0 +1,46 @@
+---
+// Transparent over the dark hero; turns into a glass bar once scrolled.
+---
+<header
+  id="site-header"
+  class="fixed inset-x-0 top-0 z-50 transition-all duration-300"
+  data-scrolled="false"
+>
+  <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
+    <a href="#top" class="flex items-center gap-2.5" aria-label="YPW — home">
+      <img src="/ypw-logo.png" alt="YPW logo" width="40" height="40" class="h-9 w-auto" />
+      <span class="font-display text-lg font-bold text-white">YPW</span>
+    </a>
+
+    <nav class="hidden items-center gap-8 text-sm font-medium text-white/80 md:flex">
+      <a href="#showcase" class="transition-colors hover:text-white">Examples</a>
+      <a href="#what-you-get" class="transition-colors hover:text-white">What you get</a>
+      <a href="#how-it-works" class="transition-colors hover:text-white">How it works</a>
+      <a href="#pricing" class="transition-colors hover:text-white">Pricing</a>
+    </nav>
+
+    <a
+      href="#brief"
+      class="inline-flex items-center justify-center rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-ink shadow-lg transition-transform hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-transparent cursor-pointer"
+    >
+      Free preview
+    </a>
+  </div>
+</header>
+
+<script>
+  const header = document.getElementById('site-header');
+  if (header) {
+    const onScroll = () => {
+      const scrolled = window.scrollY > 24;
+      header.dataset.scrolled = String(scrolled);
+      header.classList.toggle('bg-ink/80', scrolled);
+      header.classList.toggle('backdrop-blur-md', scrolled);
+      header.classList.toggle('shadow-lg', scrolled);
+      header.classList.toggle('ring-1', scrolled);
+      header.classList.toggle('ring-white/10', scrolled);
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  }
+</script>

@@ -1,0 +1,46 @@
+---
+import Icon from './Icon.astro';
+
+const cards = [
+  { icon: 'shield-check', title: '100% free preview', body: 'See your finished website before paying a cent. No commitment, no obligation, no catch.' },
+  { icon: 'badge-dollar', title: 'Affordable price', body: 'A flat $199 to publish — one of the most accessible ways to get a professional site. No surprises.' },
+  { icon: 'trending-up', title: 'An investment, not an expense', body: 'A site that builds trust and captures leads pays for itself with just one new customer.' },
+  { icon: 'lock-open', title: 'No hidden fees — you own it', body: 'No monthly lock-in to publish. The website is yours, and the price is exactly what we agree on.' },
+];
+---
+<section id="pricing" class="bg-paper-tint py-20 sm:py-28">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6">
+    <!-- Price statement -->
+    <div class="reveal overflow-hidden rounded-3xl bg-ink p-8 text-center shadow-float sm:p-12">
+      <div class="relative">
+        <div class="pointer-events-none absolute left-1/2 top-0 h-40 w-96 -translate-x-1/2 rounded-full bg-brand-500/25 blur-[100px]" aria-hidden="true"></div>
+        <h2 class="relative font-display text-3xl font-extrabold text-white sm:text-4xl">Worried about the cost?</h2>
+        <p class="relative mx-auto mt-3 max-w-xl text-slate-300">
+          We built this offer to remove every reason to hesitate. One transparent price, paid only if you love it.
+        </p>
+        <div class="relative mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row sm:items-baseline">
+          <span class="font-display text-6xl font-extrabold text-white sm:text-7xl">$199</span>
+          <span class="text-lg text-slate-400">one flat price · paid after you approve</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      {cards.map((card, i) => (
+        <div class="reveal flex flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-card transition-all hover:-translate-y-1 hover:shadow-glow" style={`--reveal-delay:${i * 80}ms`}>
+          <span class="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-brand-500 to-indigo-glow text-white shadow-md">
+            <Icon name={card.icon} class="h-6 w-6" />
+          </span>
+          <h3 class="mt-5 text-lg font-semibold text-text">{card.title}</h3>
+          <p class="mt-2 text-muted">{card.body}</p>
+        </div>
+      ))}
+    </div>
+
+    <!--
+      TESTIMONIALS SECTION GOES HERE (added later, once real clients exist).
+      Suggested: 3 testimonial cards with client name, business type, city/state,
+      short quote, and optional star rating. Keep it honest — only real reviews.
+    -->
+  </div>
+</section>
